@@ -1,0 +1,79 @@
+<HTML>
+<head>
+<title>CPI calculator</title>
+<link rel="stylesheet" href="stylesheets/foundation.min.css">
+<link rel="stylesheet" href="stylesheets/app.css">
+<script type="text/javascript" src="myscript.js"></script>
+</head>
+
+
+<body>
+<div class="row color-two">
+<center><h2>CPI calculator</h2></center>
+</div>
+<form name="wtf">
+	<div class="row color-six">
+	<br><div class="four columns"><center><b><font size="4">Probability:</div>
+	<div class="four columns offset-by-three"><input type='text' id="probab" maxlength=2 />	<br /></div>
+	</div>
+
+	<div class="row color-six">
+	<div class="four columns"><center><font size="4">ADC:</div>
+	<div class="four columns offset-by-three"><input type='text' id="adc"   maxlength=2 /><br /></div>
+	</div>
+	
+	<div class="row color-six">
+	<div class="four columns"><center><font size="4">Analog Circuits:</div>
+	<div class="four columns offset-by-three"><input type='text' id="analog"   maxlength=2 /><br /></div>
+	</div>
+	
+	<div class="row color-six">
+	<div class="four columns"><center><font size="4">Environment:</div>
+	<div class="four columns offset-by-three"><input type='text' id="environ"   maxlength=2 /><br /></div>
+	</div>
+	
+	<div class="row color-six">
+	<div class="four columns"><center><font size="4">IBF[wtf]:</div>
+	<div class="four columns offset-by-three"><input type='text' id="ibf"   maxlength=2 /><br /></div>
+	</div>
+	
+	<div class="row color-six">
+	<div class="four columns"><center><font size="4">System Software:</div>
+	<div class="four columns offset-by-three"><input type='text' id="sys"   maxlength=2 /><br /></div>
+	</div>
+	
+	<div class="row color-six">
+	<center><input type="button" class="nice button" onclick=calculations() value=Calculate! ></center>
+	</div>
+<div class="row color-six">
+	<div class="four columns"><p align=center id="printSpi"></p></div>
+</div>
+<!--Saving form-->
+<div class="row color-two"><br><font size=5>Save in a text file:<br><br></div>
+<div class="row color-six">
+</form>
+<br><div class="six columns"><textarea id="bak" rows="5" ></textarea> </div>
+<center><input type="button" class="nice button" value="Save" id="sa" onclick=fileSave() /></center><br><hr>
+</div>
+
+<!--CPI form-->
+<div class="row color-two"><br><font size=5>Calculate CPI<br><br></div>
+<div class="row color-six">
+	<br><div class="four columns"><center><font size="4">Old CPI:</div>
+	<div class="four columns offset-by-three"><input type="text" id="old"   /></div>
+</div>
+<div class="row color-six">
+	<div class="four columns"><center><font size="4">SPI:</div>
+	<div class="four columns offset-by-three"><input type="text" id="new"   /></div>
+</div>
+<div class="row color-six">
+	<center><input type="button" class="nice button" onclick=findcpi() value='Get New CPI' /></center><hr>
+</div>
+
+<!--Printing and Saving total CPI-->
+<div class="row color-six">
+	<div class="four columns"><p align=center id="finally"></p></div>
+	<div class="four columns offset-by-two"><input type="button" class="nice button" value="Save Overall CPI" id="sam" onclick=fileSave1() /></div>
+</div>
+</body>
+</HTML>
