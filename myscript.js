@@ -1,7 +1,27 @@
 
 var asd;
+var sub5credits;
+var sub6credits;
+var totalCredits;
+var semCredits;
+function initial(){
+	document.getElementById('sub1').innerHTML="<center><b><font size=4>Probability:";
+	document.getElementById('sub2').innerHTML="<center><b><font size=4>ADC:";
+	document.getElementById('sub3').innerHTML="<center><b><font size=4>Analog circuits:";
+	document.getElementById('sub4').innerHTML="<center><b><font size=4>Environment:";
+	document.getElementById('sub5').innerHTML="<center><b><font size=4>IBF:";
+	document.getElementById('sub6').innerHTML="<center><b><font size=4>System Software:";
+	document.getElementById('sem').innerHTML="<center><b><font size=5>4th Semester";
+	if(document.getElementById('ibf').style.display=='none'){
+		document.getElementById('ibf').style.display='block';
+		document.getElementById('sys').style.display='block';
+		}
+	sub5credits=3;
+	sub6credits=4.5;
+	totalCredits=16 + 20.5+ 24;
+	semCredits=23.5;
+}
 function calculations(){
-	
 	var courses = 0;
 	var overall = 0;
 	var probability = document.getElementById('probab').value;
@@ -25,12 +45,12 @@ function calculations(){
 		courses +=4.5;
 		}
 	if(ibfwtf != "" && !(isNaN(ibfwtf))){
-		overall += 3*ibfwtf;
-		courses +=3;
+		overall += sub5credits*ibfwtf;
+		courses +=sub5credits;
 		}
 	if(syss != "" && !(isNaN(syss))){
-		overall += 4.5*syss;
-		courses +=4.5;
+		overall += sub6credits*syss;
+		courses +=sub6credits;
 		}
 	if(envi != "" && !(isNaN(envi))){
 		overall += 3*envi;
@@ -44,8 +64,8 @@ function calculations(){
 	}
 var overalls=0;
 function findcpi(){
-	overalls=((document.getElementById('old').value*60.5)+(document.getElementById('new').value*23.5))/84;
-	overalls=Math.round(overalls * 100) / 100
+	overalls=((document.getElementById('old').value*totalCredits)+(document.getElementById('new').value*semCredits)) / (totalCredits+semCredits);
+	overalls=Math.round(overalls * 100) / 100;
 	if(overalls>7.5)
 	document.getElementById('finally').innerHTML="<b><font color=red size=5>Congratulations!! your CPI is "+ overalls;
 	else
@@ -75,3 +95,51 @@ function fileSave1(){
 	else alert("CPI not calculated yet.");
 }
 
+function sem3(){
+	document.getElementById('sub1').innerHTML="<center><b><font size=4>Algebra:";
+	document.getElementById('sub2').innerHTML="<center><b><font size=4>Computer Org:";
+	document.getElementById('sub3').innerHTML="<center><b><font size=4>data:";
+	document.getElementById('sub4').innerHTML="<center><b><font size=4>STS:";
+	document.getElementById('sub5').innerHTML="<center><b><font size=4>EMT:";
+	document.getElementById('sub6').innerHTML="<center><b><font size=4>SAS:";
+	document.getElementById('sem').innerHTML="<center><b><font size=5>3rd Semester";
+	
+	document.getElementById('ibf').style.display='block';
+	document.getElementById('sys').style.display='block';
+	
+	sub5credits=4;
+	sub6credits=4;
+	totalCredits=16+20.5;
+	semCredits=24;
+}
+
+function sem2(){
+	document.getElementById('sub1').innerHTML="<center><b><font size=4>Discrete Math:";
+	document.getElementById('sub2').innerHTML="<center><b><font size=4>Digital Logic Design";
+	document.getElementById('sub3').innerHTML="<center><b><font size=4>OOP:";
+	document.getElementById('sub4').innerHTML="<center><b><font size=4>Economics:";
+	document.getElementById('sub5').innerHTML="";
+	document.getElementById('sub6').innerHTML="<center><b><font size=4>Intro to communication:";
+	document.getElementById('sem').innerHTML="<center><b><font size=5>2nd Semester";
+	
+	document.getElementById('ibf').style.display='none';
+	document.getElementById('sys').style.display='block';
+	
+	totalCredits=16;
+	semCredits=20.5;
+}
+function sem1(){
+	document.getElementById('sub1').innerHTML="<center><b><font size=4>Calculas and complex:";
+	document.getElementById('sub2').innerHTML="<center><b><font size=4>BEC:";
+	document.getElementById('sub3').innerHTML="<center><b><font size=4>Intro to Prog	:";
+	document.getElementById('sub4').innerHTML="<center><b><font size=4>Approaches to Indian Society:";
+	document.getElementById('sem').innerHTML="<center><b><font size=5>1st Semester";
+	document.getElementById('sub5').innerHTML="";
+	document.getElementById('sub6').innerHTML="";
+	
+	document.getElementById('ibf').style.display='none';
+	document.getElementById('sys').style.display='none';
+	
+	totalCredits=0;
+	semCredits=16;
+}
