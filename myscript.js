@@ -1,20 +1,25 @@
-
+var st = "<center><b><font size=4>";
+var str1="";  //For printing grades in TextBox
+var str2="";  //For printing grades in TextBox
 var asd;
 var sub5credits;
 var sub6credits;
 var totalCredits;
 var semCredits;
 function initial(){
-	document.getElementById('sub1').innerHTML="<center><b><font size=4>Probability:";
-	document.getElementById('sub2').innerHTML="<center><b><font size=4>ADC:";
-	document.getElementById('sub3').innerHTML="<center><b><font size=4>Analog circuits:";
-	document.getElementById('sub4').innerHTML="<center><b><font size=4>Environment:";
-	document.getElementById('sub5').innerHTML="<center><b><font size=4>IBF:";
-	document.getElementById('sub6').innerHTML="<center><b><font size=4>System Software:";
-	document.getElementById('sem').innerHTML="<center><b><font size=5>4th Semester";
-	if(document.getElementById('ibf').style.display=='none'){
-		document.getElementById('ibf').style.display='block';
-		document.getElementById('sys').style.display='block';
+	clearFields();
+	set('sub1',"Probability:");
+	set('sub2',"ADC:");
+	set('sub3',"Analog circuits:");
+	set('sub4',"Environment:");
+	set('sub5',"IBF:");
+	set('sub6',"System Software:");
+	set('sem',"<center><b><font size=5>4th Semester");
+	var dis1 = document.getElementById('ibf').style;
+	var dis2 = document.getElementById('sys').style;
+	if(dis1.display =='none' || dis2.display=='none'){
+		dis1.display='block';
+		dis2.display='block';
 		}
 	sub5credits=3;
 	sub6credits=4.5;
@@ -30,6 +35,11 @@ function calculations(){
 	var syss = document.getElementById('sys').value;
 	var ibfwtf = document.getElementById('ibf').value;
 	var envi = document.getElementById('environ').value;
+
+	if(probability>10 || adcc>10 || analogc>10 || syss>10 || ibfwtf>10 || envi>10){
+		alert ('Invalid grade entered!! Please enter a valid grade.');
+		return;
+	}
 	if(probability != "" && !(isNaN(probability))){
 		overall += 4*document.wtf.probab.value;
 		courses +=4;
@@ -44,21 +54,23 @@ function calculations(){
 		overall += 4.5*analogc;
 		courses +=4.5;
 		}
-	if(ibfwtf != "" && !(isNaN(ibfwtf))){
-		overall += sub5credits*ibfwtf;
-		courses +=sub5credits;
-		}
-	if(syss != "" && !(isNaN(syss))){
-		overall += sub6credits*syss;
-		courses +=sub6credits;
-		}
 	if(envi != "" && !(isNaN(envi))){
 		overall += 3*envi;
 		courses +=3;
 		}
+	if(ibfwtf != "" && !(isNaN(ibfwtf))){
+		overall += sub5credits*ibfwtf;
+		courses +=sub5credits;
+		str1 = setString('sub5',ibfwtf);
+		}
+	if(syss != "" && !(isNaN(syss))){
+		overall += sub6credits*syss;
+		courses +=sub6credits;
+		str2 = setString('sub6',syss);
+		}
 	asd = overall/courses;
 	asd = Math.round(asd * 100) / 100;
-	document.getElementById('bak').value ="Your SPI is " + asd + ",\nGrade in Probability:" + probability + ",\nGrade in ADC:" + adcc + ",\nGrade in Analog:" + analogc+ ",\nGrade in IBF:" + ibfwtf ;
+	document.getElementById('bak').value ="Your SPI is " + asd + setString('sub1', probability) + setString('sub2',adcc) + setString('sub3',analogc)+ setString('sub4', envi)+ str1 + str2 ;
 	document.getElementById('new').value=asd;
 	document.getElementById('printSpi').innerHTML="<b><font color=#00AA00 size=5>This Sem's SPI is " + asd;
 	}
@@ -96,13 +108,14 @@ function fileSave1(){
 }
 
 function sem3(){
-	document.getElementById('sub1').innerHTML="<center><b><font size=4>Algebra:";
-	document.getElementById('sub2').innerHTML="<center><b><font size=4>Computer Org:";
-	document.getElementById('sub3').innerHTML="<center><b><font size=4>data:";
-	document.getElementById('sub4').innerHTML="<center><b><font size=4>STS:";
-	document.getElementById('sub5').innerHTML="<center><b><font size=4>EMT:";
-	document.getElementById('sub6').innerHTML="<center><b><font size=4>SAS:";
-	document.getElementById('sem').innerHTML="<center><b><font size=5>3rd Semester";
+	clearFields();
+	set('sub1',"Algebra:");
+	set('sub2',"Computer Organisation:");
+	set('sub3',"Data Structures:");
+	set('sub4',"Science,Tech,Society:");
+	set('sub5',"Electromagnetic Theory:");
+	set('sub6',"Signals and Systems:");
+	set('sem',"<center><b><font size=5>3rd Semester");
 	
 	document.getElementById('ibf').style.display='block';
 	document.getElementById('sys').style.display='block';
@@ -114,13 +127,14 @@ function sem3(){
 }
 
 function sem2(){
-	document.getElementById('sub1').innerHTML="<center><b><font size=4>Discrete Math:";
-	document.getElementById('sub2').innerHTML="<center><b><font size=4>Digital Logic Design";
-	document.getElementById('sub3').innerHTML="<center><b><font size=4>OOP:";
-	document.getElementById('sub4').innerHTML="<center><b><font size=4>Economics:";
-	document.getElementById('sub5').innerHTML="";
-	document.getElementById('sub6').innerHTML="<center><b><font size=4>Intro to communication:";
-	document.getElementById('sem').innerHTML="<center><b><font size=5>2nd Semester";
+	clearFields();
+	set('sub1',"Discrete Math:");
+	set('sub2', "Digital Logic Design:");
+	set('sub3',"OOP:");
+	set('sub4',"Economics:");
+	set('sub5',"");
+	set('sub6',"Intro to communication:");
+	set('sem',"<center><b><font size=5>2nd Semester");
 	
 	document.getElementById('ibf').style.display='none';
 	document.getElementById('sys').style.display='block';
@@ -129,17 +143,43 @@ function sem2(){
 	semCredits=20.5;
 }
 function sem1(){
-	document.getElementById('sub1').innerHTML="<center><b><font size=4>Calculas and complex:";
-	document.getElementById('sub2').innerHTML="<center><b><font size=4>BEC:";
-	document.getElementById('sub3').innerHTML="<center><b><font size=4>Intro to Prog	:";
-	document.getElementById('sub4').innerHTML="<center><b><font size=4>Approaches to Indian Society:";
-	document.getElementById('sem').innerHTML="<center><b><font size=5>1st Semester";
-	document.getElementById('sub5').innerHTML="";
-	document.getElementById('sub6').innerHTML="";
+	clearFields();
+	set('sub1',"Calculus and Complex Variables:");
+	set('sub2',"Basic Electronic Circuits:");
+	set('sub3',"Intro to Prog:");
+	set('sub4',"Approaches to Indian Society:");
+	set('sem',"<center><b><font size=5>1st Semester");
+	set('sub5',"");
+	set('sub6',"");
 	
 	document.getElementById('ibf').style.display='none';
 	document.getElementById('sys').style.display='none';
 	
 	totalCredits=0;
 	semCredits=16;
+}
+function clearFields(){
+	clear('probab');
+	clear('adc');
+	clear('analog');
+	clear('sys');
+	clear('ibf');
+	clear('environ');
+	clear('new');
+	clear('old');
+	set('finally',"");
+	set('printSpi',"");
+	clear('bak');
+	str1="";
+	str2="";
+}
+function clear(y){
+	document.getElementById(y).value="";
+}
+function set(m,n){
+document.getElementById(m).innerHTML=st + n;
+}
+function setString(x,z){
+	var one = document.getElementById(x).innerHTML;
+	return ",\nGrade in " + one.substring(one.indexOf(':')+1,26) + z;
 }
