@@ -58,24 +58,23 @@ function findcpi(){
 	
 	// This condition is true for 6th, 7th and 8th Semesters
 	if(checkSem3.substring(7,1)=="select"){
-		if(courses!=undefined){
-				if(document.getElementById('later').value!="" ){
-				totalCredits = document.getElementById('later').value;
+		if(document.getElementById('later').value!="" ){
+			totalCredits = parseInt(document.getElementById('later').value);
+			if(courses!=undefined){
 				semCredits=courses;
-			}else{
-				alert ('Please fill the last entry!!');
-				return;
-			}
-		}else semCredits= prompt('Enter this Semester\'s Total Credits:');
+			}else semCredits= parseInt(prompt('Enter this Semester\'s Total Credits:'));
+		}else{
+			alert ('Please fill the last entry!!');
+			return;
+		}	
 	}
 	// Check if it is 5th sem
 	else if(checkSem4.substring(7,1)=="select")
 		if(courses!=undefined)
 			semCredits=courses;
-		else  semCredits= prompt('Enter this Semester\'s Total Credits:');
+		else  semCredits= parseInt(prompt('Enter this Semester\'s Total Credits:'));
 	overalls=((document.getElementById('old').value*totalCredits)+(document.getElementById('new').value*semCredits)) / (totalCredits+semCredits);
 	overalls=Math.round(overalls * 100) / 100;
-	alert (overalls+"tto"+totalCredits+"sem"+courses);
 	if(overalls>7.5)
 	document.getElementById('finally').innerHTML="<b><font color=red size=5>Congratulations!! your CPI is "+ overalls;
 	else
