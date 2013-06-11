@@ -21,6 +21,13 @@ body {background-color: #0F00FF;}
 .color-five {background-color:#dddddd;} /*dark gray */
 .color-six{background-color: #FFFFFF;} /*white*/
  
+ select.sel{
+	height: 30px;
+	size: 50;
+	font-size: 13px;
+	font-weight: bold;
+ }
+ 
 .button {
 		background: #00a6fc;
 		display: inline-block;

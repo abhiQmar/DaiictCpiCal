@@ -163,6 +163,30 @@ input[type="text"][disabled], input[type="password"][disabled], input[type="date
 textarea { height: auto; }
 
 select { width: 100%; }
+select.abhi { display: block; position: relative; width: auto; height: 28px; margin-bottom: 9px; margin-top: 2px; }
+select.abhi ul { overflow-y: auto; max-height: 200px; }
+select.abhi a.current { display: block; width: auto; line-height: 26px; min-height: 28px; padding: 0; padding-left: 6px; padding-right: 38px; border: solid 1px #dddddd; color: #141414; background-color: white; white-space: nowrap; }
+select.abhi a.selector { position: absolute; width: 27px; height: 28px; display: block; right: 0; top: 0; border: solid 1px #dddddd; }
+select.abhi a.selector:after { content: ""; display: block; content: ""; display: block; width: 0; height: 0; border: solid 5px; border-color: #aaaaaa transparent transparent transparent; position: absolute; left: 50%; top: 50%; margin-top: -2px; margin-left: -5px; }
+select.abhi:hover a.selector:after, select.abhi.open a.selector:after { content: ""; display: block; width: 0; height: 0; border: solid 5px; border-color: #222222 transparent transparent transparent; }
+select.abhi.open ul { display: block; z-index: 10; }
+select.abhi.small { width: 134px !important; }
+select.abhi.medium { width: 254px !important; }
+select.abhi.large { width: 434px !important; }
+select.abhi.expand { width: 100% !important; }
+select.abhi.open.small ul { width: 134px !important; }
+select.abhi.open.medium ul { width: 254px !important; }
+select.abhi.open.large ul { width: 434px !important; }
+select.abhi.open.expand ul { width: 100% !important; }
+select.abhi ul { position: absolute; width: auto; display: none; margin: 0; left: 0; top: 27px; margin: 0; padding: 0; background: white; background: rgba(255, 255, 255, 0.95); border: solid 1px #cccccc; }
+select.abhi ul li { color: #555555; font-size: 13px; cursor: pointer; padding: 3px; padding-left: 6px; padding-right: 38px; min-height: 18px; line-height: 18px; margin: 0; white-space: nowrap; list-style: none; }
+select.abhi ul li.selected { background: #cdebf5; color: black; }
+select.abhi ul li.selected:after { content: "\2013"; position: absolute; right: 10px; }
+select.abhi ul li:hover { background-color: #cdebf5; color: black; }
+select.abhi ul li:hover:after { content: "\2013"; position: absolute; right: 10px; color: #a3dbec; }
+select.abhi ul li.selected:hover { background: #cdebf5; cursor: default; color: black; }
+select.abhi ul li.selected:hover:after { color: black; }
+select.abhi ul.show { display: block; }
 
 /* Fieldsets */
 fieldset { border: solid 1px #ddd; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 12px; margin: 18px 0; }
