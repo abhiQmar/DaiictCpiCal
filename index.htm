@@ -13,45 +13,56 @@
 <center><h2>CPI calculator</h2></center>
 </div>
 <div class="row color-six">
-<table><tr>
-<td><center><input type="button" class="nice button" value="SEM 1" onclick=sem1() /></td>
-<td><input type="button" class="nice button" value="SEM 2" onclick=sem2() /></td>
-<td><input type="button" class="nice button" value="SEM 3" onclick=sem3() /></td>
-<td><input type="button" class="nice button" value="SEM 4" onclick=initial() /></td>
-</tr></table>
+<div class="seven columns centered">
+	<table>
+	<tr>
+	<td><center><input type="button" class="nice button" value="SEM 1" onclick=sem1() /></td>
+	<td><input type="button" class="nice button" value="SEM 2" onclick=sem2() /></td>
+	<td><input type="button" class="nice button" value="SEM 3" onclick=sem3() /></td>
+	<td><input type="button" class="nice button" value="SEM 4" onclick=initial() /></td>
+	</tr>
+	<tr>
+	<td><input type="button" class="nice button" value="SEM 5" onclick=sem5() /></td>
+	<td><input type="button" class="nice button" value="SEM 6" onclick=sem678(6) /></td>
+	<td><input type="button" class="nice button" value="SEM 7" onclick=sem678(7) /></td>
+	<td><input type="button" class="nice button" value="SEM 8" onclick=sem678(8) /></td>
+	</tr>
+	</table>
+</div>
 </div>
 <div class="row color-five">
 <p id=sem></p>
 </div>
 	<form name="wtf">
 		<div class="row color-six">
-		<br><div class="four columns"><p id="sub1"><center><font size="4"></p></div>
+		<br>
+		<div class="five columns"><p id="sub1"><center><font size="4"></p></div>
 		<div class="four columns offset-by-three"><input type='text' id="probab" maxlength=2 />	<br /></div>
 		</div>
 
 		<div class="row color-six">
-		<div class="four columns"><p id="sub2"><center><font size="4"></p></div>
+		<div class="five columns"><p id="sub2"><center><font size="4"></p></div>
 		<div class="four columns offset-by-three"><input type='text' id="adc"   maxlength=2 /><br /></div>
 		</div>
 
 		<div class="row color-six">
-		<div class="four columns"><p id="sub3"><center><font size="4"></p></div>
+		<div class="five columns"><p id="sub3"><center><font size="4"></p></div>
 		<div class="four columns offset-by-three"><input type='text' id="analog"   maxlength=2 /><br /></div>
 		</div>
 		
 		<div class="row color-six">
-		<div class="four columns"><p id="sub4"><center><font size="4"></p></div>
+		<div class="five columns"><p id="sub4"><center><font size="4"></p></div>
 		<div class="four columns offset-by-three"><input type='text' id="environ"   maxlength=2 /><br /></div>
 		</div>
 		
 		<div class="row color-six">
-		<div class="four columns"><p id="sub6"><center><font size="4"></p></div>
-		<div class="four columns offset-by-three"><input type='text' id="sys"   maxlength=2 /><br /></div>
+		<div class="five columns"><p id="sub5"><center><font size="4"></p></div>
+		<div class="four columns offset-by-three"><input type='text' id="ibf"   maxlength=2 /><br /></div>
 		</div>
 		
 		<div class="row color-six">
-		<div class="four columns"><p id="sub5"><center><font size="4"></p></div>
-		<div class="four columns offset-by-three"><input type='text' id="ibf"   maxlength=2 /><br /></div>
+		<div class="five columns"><p id="sub6"><center><font size="4"></p></div>
+		<div class="four columns offset-by-three"><input type='text' id="sys"   maxlength=2 /><br /></div>
 		</div>
 		
 		<div class="row color-six">
@@ -80,15 +91,18 @@
 		<div class="four columns offset-by-three"><input type="text" id="new"   /></div>
 	</div>
 	<div class="row color-six">
+		<div class="four columns"><font></div>
+		<div class="four columns offset-by-three"><input type="text" id="later" placeholder="Total Credits Earned Before This Sem"  /></div>
+	</div>
+	<div class="row color-six">
 		<center><input type="button" class="nice button" onclick=findcpi() value='Get New CPI' /></center><hr>
 	</div>
+	
 
 	<!--Printing and Saving total CPI-->
 	<div class="row color-six">
 		<div class="four columns"><p align=center id="finally"></p></div>
 		<div class="four columns offset-by-two"><input type="button" class="nice button" value="Save Overall CPI" id="sam" onclick=fileSave1() /></div>
 	</div>
-
-
 </BODY>
 </HTML>
